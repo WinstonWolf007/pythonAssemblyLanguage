@@ -10,6 +10,7 @@ func = {
     'upt': upt,
     'put': put,
     'del': del_,
+    'use': use,
     'call': call,
     'get': get,
     'if': if_,
@@ -17,7 +18,7 @@ func = {
 }
 
 # read each line in file
-with open("../PAL file/script.bs", 'r+') as file:
+with open("../PAL file/test.bs", 'r+') as file:
     infoFIle['lineNbr'] = 0
     infoFIle['lineCode'] = ''
 

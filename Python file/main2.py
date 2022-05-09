@@ -6,6 +6,8 @@ data = {'dft': [0]}
 associate, funcCode = {}, {}
 inFunc = [None, False]
 infoFIle = {}
+pyFuncName = {}
+
 
 
 # It used for looping a function
@@ -198,12 +200,21 @@ def put(value):
 
 
 def call(value):
-    values = data['dft'][0]
-    fn = {0: out, 1: exit, 2: getInput}
-    if values in fn:
-        if values == 1:
-            exit(int(value[0]))
-        fn.get(values)(value)
+    if value[0] == 'dft':
+        values = data['dft'][0]
+        fn = {0: out, 1: exit, 2: getInput}
+        if values in fn:
+            if values == 1:
+                exit(int(value[1]))
+            fn.get(values)(value[1:])
+    elif value[0] in pyFuncName:
+        print('func called:', pyFuncName[value[0]][data[value[0]][0]])
+        """
+def display(txt):
+    print('Txt is equal to:', txt)
+        """
+        with open('../Sys File/'+value[0]+'.py', 'a') as file:
+            file.write('\n'+pyFuncName[value[0]][data[value[0]][0]]+'\n')
 
 
 def upt(value):
@@ -234,3 +245,20 @@ def upt(value):
             infoFIle['lineCode'],
             f'The "{table}" register does not exist.'
         )
+
+
+def use(value):
+    if len(value) != 2:
+        return
+    if value[1] not in ["'sys'", "'priv'"]:
+        return
+
+    if value[1] == "'sys'":
+        pyFuncName[value[0]] = []
+        with open('../Sys File/'+value[0]+'.py') as pyFile:
+            for line in pyFile:
+                line = line.split()
+                if len(line) > 1 and line[0] == 'def':
+                    pyFuncName[value[0]].append(line[1].replace(':', ''))
+        data[value[0]] = [0]
+        print(pyFuncName)
