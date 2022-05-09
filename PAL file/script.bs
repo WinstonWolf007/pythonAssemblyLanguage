@@ -23,4 +23,4 @@
 &endf
 
 ; if char == 97: good()
-&if [char:0], 10, 97, %good <1, 2, 3, 4>
+&if [char:0], 1, 97, %good <1, 2, 3, 4>

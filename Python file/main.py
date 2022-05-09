@@ -17,7 +17,7 @@ func = {
 }
 
 # read each line in file
-with open('test.bs', 'r+') as file:
+with open("../PAL file/script.bs", 'r+') as file:
     infoFIle['lineNbr'] = 0
     infoFIle['lineCode'] = ''
 
