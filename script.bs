@@ -1,0 +1,26 @@
+; char = 0
+&rgt 1, char
+
+; txtInput = ">"
+&rgt 1, txtInput
+    &put txtInput, 0, 62
+
+; input()
+&put dft, 0, 2
+&call txtInput, char
+
+; txtGood = "good"
+&rgt 4, txtGood
+    &put txtGood, 0, 71
+    &put txtGood, 1, 111
+    &put txtGood, 2, 111
+    &put txtGood, 3, 100
+
+; def good(): print(txtGood)
+&def good <l, 4>
+    &put dft, 0, 0
+    &call txtGood
+&endf
+
+; if char == 97: good()
+&if [char:0], 10, 97, %good <1, 2, 3, 4>

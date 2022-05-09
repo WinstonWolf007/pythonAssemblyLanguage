@@ -1,0 +1,11 @@
+; txt = "Hello"
+&rgt 5, txt
+    &put txt, 0, 72 ; H
+    &put txt, 1, 101 ; e
+    &put txt, 2, 108 ; l
+    &put txt, 3, 108 ; l
+    &put txt, 4, 111 ; o
+
+; print(txt)
+&put dft, 0, 0
+&call txt

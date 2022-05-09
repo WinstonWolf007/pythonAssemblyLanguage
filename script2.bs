@@ -1,0 +1,10 @@
+&rgt 1, letter
+    &put letter, 0, 97
+
+&def log <pp, 0>
+    &put dft, 0, 0
+    &call letter
+    &upt letter, 0, +1
+&endf
+
+&loop i, 26, %log

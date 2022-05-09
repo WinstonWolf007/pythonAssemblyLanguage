@@ -1,0 +1,24 @@
+; letter = "allo"
+&rgt 4, letter
+    &put letter, 0, 97
+    &put letter, 1, 108
+    &put letter, 2, 108
+    &put letter, 3, 111
+
+; define function
+&def print <param, 1>
+    &put dft, 0, 0
+    &call param
+&endf
+
+
+; Ascii char
+%print 97
+%print 108
+%print 108
+%print 111
+
+; exit code 0
+&put dft, 0, 1
+&call 0
+
